@@ -17,7 +17,13 @@ class BaseArray(SchemaGenerator):
         if self._items:
             schema['items'] = self.items_to_schema()
         else:
-            schema['items'] = {'anyOf': ['string', 'number', 'object', 'array', 'boolean', 'null']}
+            schema['items'] = {'anyOf': [{type: 'string'},
+                                         {type: 'number'},
+                                         {type: 'object'},
+                                         {type: 'array'},
+                                         {type: 'boolean'},
+                                         {type: 'null'}
+                                         ]}
         return schema
 
 
