@@ -16,6 +16,8 @@ class BaseArray(SchemaGenerator):
         schema['type'] = 'array'
         if self._items:
             schema['items'] = self.items_to_schema()
+        else:
+            schema['items'] = {'type': 'any'}
         return schema
 
 
